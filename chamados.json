@@ -1,0 +1,66 @@
+[
+    {
+        "id": 1,
+        "solicitante": "Alessandra",
+        "equipamento": "notebook ",
+        "descricao": "Falha no windows",
+        "status": "Aberto",
+        "data": "08/07/2026 20:18"
+    },
+    {
+        "id": 2,
+        "solicitante": "Cassio ",
+        "equipamento": "Notebook",
+        "descricao": "|Falha no usuário",
+        "status": "Concluída",
+        "data": "08/07/2026 20:23"
+    },
+    {
+        "id": 3,
+        "solicitante": "Graziela ",
+        "equipamento": "Notebook",
+        "descricao": "esqueci a Senha de rede ",
+        "status": "Cancelada",
+        "data": "08/07/2026 20:24"
+    },
+    {
+        "id": 4,
+        "solicitante": "Nina ",
+        "equipamento": "Tablet",
+        "descricao": "falha no Sima",
+        "status": "Aberto",
+        "data": "08/07/2026 20:30"
+    },
+    {
+        "id": 5,
+        "solicitante": "Aline",
+        "equipamento": "Tablet",
+        "descricao": "Senha bloqueada",
+        "status": "Concluída",
+        "data": "08/07/2026 20:42"
+    },
+    {
+        "id": 6,
+        "solicitante": "Carla",
+        "equipamento": "tablet",
+        "descricao": "Usuário bloqueado",
+        "status": "Concluída",
+        "data": "08/07/2026 20:48"
+    },
+    {
+        "id": 7,
+        "solicitante": "Alvaro",
+        "equipamento": "tablet",
+        "descricao": "erro do sima",
+        "status": "Concluída",
+        "data": "08/07/2026 20:52"
+    },
+    {
+        "id": 8,
+        "solicitante": "Laura",
+        "equipamento": "Notebook",
+        "descricao": "Defeito na placa",
+        "status": "Aberto",
+        "data": "15/11/2026 16:39"
+    }
+]

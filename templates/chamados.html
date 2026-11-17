@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Chamados</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<h1>Lista de Chamados</h1>
+
+
+<form method="GET" action="/chamados">
+
+    <label>Filtrar por status:</label>
+
+    <select name="status">
+
+        <option value="Todos">Todos</option>
+
+        <option value="Aberto">Aberto</option>
+
+        <option value="Concluída">Concluída</option>
+
+        <option value="Cancelada">Cancelada</option>
+
+    </select>
+
+
+    <button type="submit">
+        Filtrar
+    </button>
+
+</form>
+
+
+<br>
+
+
+<table border="1">
+
+<tr>
+    <th>ID</th>
+    <th>Solicitante</th>
+    <th>Equipamento</th>
+    <th>Descrição</th>
+    <th>Status</th>
+    <th>Data</th>
+    <th>Ações</th>
+</tr>
+
+
+{% if chamados %}
+
+    {% for chamado in chamados %}
+
+    <tr>
+
+        <td>{{ chamado["id"] }}</td>
+
+        <td>{{ chamado["solicitante"] }}</td>
+
+        <td>{{ chamado["equipamento"] }}</td>
+
+        <td>{{ chamado["descricao"] }}</td>
+
+
+        <td>
+
+        {% if chamado["status"] == "Aberto" %}
+
+            <span style="color:red;">
+                {{ chamado["status"] }}
+            </span>
+
+
+        {% elif chamado["status"] == "Concluída" %}
+
+            <span style="color:green;">
+                {{ chamado["status"] }}
+            </span>
+
+
+        {% else %}
+
+            <span>
+                {{ chamado["status"] }}
+            </span>
+
+        {% endif %}
+
+        </td>
+
+
+        <td>{{ chamado["data"] }}</td>
+
+
+        <td>
+
+            <a href="/status/{{ chamado['id'] }}/Concluída">
+                <button>
+                    Concluir
+                </button>
+            </a>
+
+
+            <a href="/status/{{ chamado['id'] }}/Cancelada">
+                <button>
+                    Cancelar
+                </button>
+            </a>
+
+
+            <a href="/excluir/{{ chamado['id'] }}">
+                <button>
+                    Excluir
+                </button>
+            </a>
+
+        </td>
+
+
+    </tr>
+
+    {% endfor %}
+
+
+{% else %}
+
+<tr>
+    <td colspan="7">Nenhum chamado encontrado</td>
+</tr>
+
+{% endif %}
+
+
+</table>
+
+
+<br>
+
+
+<a href="/">
+Voltar para abrir chamado
+</a>
+
+
+</body>
+
+</html>
