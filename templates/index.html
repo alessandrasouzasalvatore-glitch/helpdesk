@@ -1,41 +1,113 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
-    <title>Helpdesk</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abrir Chamado - Helpdesk</title>
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
-<body>
+<body class="app-body">
 
-<h1>Sistema de Helpdesk</h1>
+    <nav class="navbar navbar-expand-lg navbar-dark app-navbar py-3">
+        <div class="container">
+            <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="/">
+                <i class="bi bi-hdd-network text-info"></i>
+                <span>Helpdesk TI</span>
+            </a>
+            <div class="ms-auto">
+                <a class="btn btn-outline-light btn-sm px-3" href="/chamados">
+                    <i class="bi bi-list-check me-1"></i> Ver Chamados
+                </a>
+            </div>
+        </div>
+    </nav>
 
-<form action="/abrir" method="POST">
+    <main class="container app-main py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-7 col-xl-6">
 
-    <label>Solicitante</label><br>
-    <input type="text" name="solicitante" required><br><br>
+                <div class="mb-4">
+                    <span class="badge bg-primary bg-opacity-10 text-primary border border-primary-subtle px-3 py-2 rounded-pill mb-2">
+                        <i class="bi bi-shield-check me-1"></i> Suporte Técnico
+                    </span>
+                    <h1 class="h3 fw-bold mb-1">Abrir Novo Chamado</h1>
+                    <p class="text-muted mb-0">
+                        Preencha os dados abaixo para registrar uma ocorrência no sistema.
+                    </p>
+                </div>
 
-    <label>Equipamento</label><br>
-    <input type="text" name="equipamento" required><br><br>
+                <div class="surface-card p-4 p-md-5">
+                    <form action="/" method="POST">
+                        <div class="mb-3">
+                            <label for="solicitante" class="form-label fw-semibold">
+                                <i class="bi bi-person me-1 text-secondary"></i> Solicitante
+                            </label>
+                            <input
+                                type="text"
+                                id="solicitante"
+                                name="solicitante"
+                                class="form-control"
+                                placeholder="Ex.: Ana Souza"
+                                required
+                            >
+                        </div>
 
-    <label>Descrição da Falha</label><br>
+                        <div class="mb-3">
+                            <label for="equipamento" class="form-label fw-semibold">
+                                <i class="bi bi-pc-display me-1 text-secondary"></i> Equipamento / Serviço
+                            </label>
+                            <input
+                                type="text"
+                                id="equipamento"
+                                name="equipamento"
+                                class="form-control"
+                                placeholder="Ex.: Notebook Dell, Impressora, Rede Wi-Fi"
+                                required
+                            >
+                        </div>
 
-    <textarea name="descricao" rows="5" cols="50" required></textarea>
+                        <div class="mb-4">
+                            <label for="descricao" class="form-label fw-semibold">
+                                <i class="bi bi-card-text me-1 text-secondary"></i> Descrição da Falha
+                            </label>
+                            <textarea
+                                id="descricao"
+                                name="descricao"
+                                rows="4"
+                                class="form-control"
+                                placeholder="Descreva o problema, mensagem de erro ou quando começou..."
+                                required
+                            ></textarea>
+                        </div>
 
-    <br><br>
+                        <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                            <a href="/chamados" class="btn btn-light border">
+                                <i class="bi bi-arrow-left me-1"></i> Consultar Chamados
+                            </a>
+                            <button type="submit" class="btn btn-brand">
+                                <i class="bi bi-send me-1"></i> Registrar Chamado
+                            </button>
+                        </div>
+                    </form>
+                </div>
 
-    <button type="submit">
-        Abrir Chamado
-    </button>
+            </div>
+        </div>
+    </main>
 
-</form>
+    <footer class="app-footer py-3 mt-auto">
+        <div class="container d-flex justify-content-between align-items-center flex-wrap gap-2">
+            <span>Helpdesk System • Linux Web Server</span>
+            <span>Persistência em JSON</span>
+        </div>
+    </footer>
 
-<br>
-
-<a href="/chamados">
-Ver Chamados
-</a>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
